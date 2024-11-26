@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { padding: 10px; margin: 5px 0; width: 100%; }
+    ul { padding: 0; list-style: none; }
+    li { margin: 10px 0; }
+    h1 { color: #4CAF50; }
+  </style>
+</head>
+<body>
+  <h1>Recipe Finder</h1>
+  <p>Введите свои продукты через запятую:</p>
+  <input type="text" id="ingredients" placeholder="Например: яйца, мука, молоко">
+  <button onclick="findRecipes()">Найти рецепт</button>
+  <h2>Результаты:</h2>
+  <ul id="results"></ul>
+  <script>
+    const recipes = [
+      { name: "Блины", ingredients: ["яйца", "мука", "молоко"] },
+      { name: "Омлет", ingredients: ["яйца", "молоко"] },
+      { name: "Салат", ingredients: ["огурец", "помидор", "масло"] }
+    ];
+
+    function findRecipes() {
+      const input = document.getElementById('ingredients').value.toLowerCase().split(',').map(i => i.trim());
+      const results = recipes.filter(recipe =>
+        input.every(ingredient => recipe.ingredients.includes(ingredient))
+      );
+      const resultsList = document.getElementById('results');
+      resultsList.innerHTML = results.length > 0 
+        ? results.map(r => `<li>${r.name}</li>`).join('') 
+        : '<li>Рецептов не найдено</li>';
+    }
+  </script>
+</body>
+</html>
