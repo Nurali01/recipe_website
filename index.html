@@ -1,41 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipe Finder</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    input, button { padding: 10px; margin: 5px 0; width: 100%; }
-    ul { padding: 0; list-style: none; }
-    li { margin: 10px 0; }
-    h1 { color: #4CAF50; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        input, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Recipe Finder</h1>
-  <p>Введите свои продукты через запятую:</p>
-  <input type="text" id="ingredients" placeholder="Например: яйца, мука, молоко">
-  <button onclick="findRecipes()">Найти рецепт</button>
-  <h2>Результаты:</h2>
-  <ul id="results"></ul>
-  <script>
-    const recipes = [
-      { name: "Блины", ingredients: ["яйца", "мука", "молоко"] },
-      { name: "Омлет", ingredients: ["яйца", "молоко"] },
-      { name: "Салат", ingredients: ["огурец", "помидор", "масло"] }
-    ];
+    <header>
+        <h1>Recipe Finder</h1>
+    </header>
+    <div class="container">
+        <h2>Найдите блюдо по вашим ингредиентам</h2>
+        <p>Введите ингредиенты, которые у вас есть, и получите список рецептов:</p>
+        <form id="recipe-form">
+            <input type="text" id="ingredients" placeholder="Например: яйцо, мука, сахар">
+            <button type="button" class="button" onclick="findRecipe()">Найти рецепт</button>
+        </form>
+        <div id="recipe-results"></div>
+    </div>
+    <footer>
+        © 2024 Recipe Finder. Все права защищены.
+    </footer>
+    <script>
+        function findRecipe() {
+            const ingredients = document.getElementById('ingredients').value;
+            const results = document.getElementById('recipe-results');
 
-    function findRecipes() {
-      const input = document.getElementById('ingredients').value.toLowerCase().split(',').map(i => i.trim());
-      const results = recipes.filter(recipe =>
-        input.every(ingredient => recipe.ingredients.includes(ingredient))
-      );
-      const resultsList = document.getElementById('results');
-      resultsList.innerHTML = results.length > 0 
-        ? results.map(r => `<li>${r.name}</li>`).join('') 
-        : '<li>Рецептов не найдено</li>';
-    }
-  </script>
+            if (!ingredients) {
+                results.innerHTML = '<p>Пожалуйста, введите ингредиенты.</p>';
+                return;
+            }
+
+            // Простой пример вывода
+            results.innerHTML = `
+                <h3>Рецепты для: ${ingredients}</h3>
+                <ul>
+                    <li>Блинчики — из яиц, муки и молока.</li>
+                    <li>Яичница — из яиц и масла.</li>
+                </ul>
+            `;
+        }
+    </script>
 </body>
 </html>
