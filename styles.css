@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sub-title {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.quote-box {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.quote-text {
+    font-size: 22px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.author {
+    font-size: 18px;
+    color: #777;
+    text-align: right;
+}
+
+.buttons button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.next-quote {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.next-quote:hover {
+    background-color: #4cae4c;
+}
+
+.share-btn {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.share-btn:hover {
+    background-color: #e67e22;
+}
