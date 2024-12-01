@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+Sitemap: https://yourusername.github.io/your-repository-name/sitemap.xml
